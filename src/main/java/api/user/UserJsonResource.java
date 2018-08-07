@@ -14,4 +14,5 @@ public class UserJsonResource {
 
 		userService.create(userDto);
 	}
+
 }
