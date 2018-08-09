@@ -17,6 +17,7 @@ public class PreparedStatementUpdate extends PreparedStatementSqlite{
 	public List<Map<String, Object>> execute() throws SQLException {
 		preparedStatement.executeUpdate();
 
+		closeStatement();
 		return null;
 	}
 }

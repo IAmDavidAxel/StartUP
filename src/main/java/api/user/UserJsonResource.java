@@ -1,5 +1,6 @@
 package api.user;
 
+import application.user.ServiceException;
 import application.user.UserService;
 
 public class UserJsonResource {
@@ -10,7 +11,7 @@ public class UserJsonResource {
 		this.userService = userService;
 	}
 
-	public void create(UserDto userDto) {
+	public void create(UserDto userDto) throws ServiceException {
 
 		userService.create(userDto);
 	}

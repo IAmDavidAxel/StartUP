@@ -2,6 +2,7 @@ package infrastructure.persistance.dao.sqlite;
 
 import infrastructure.persistance.entityManager.SqliteConnection;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,12 @@ public class PreparedStatementFetch extends PreparedStatementSqlite {
 
 	@Override
 	public List<Map<String, Object>> execute() throws SQLException {
-		return null;
+
+		ResultSet resultSet = preparedStatement.executeQuery();
+		List<Map<String, Object>> results = resultSetSqliteAssembler.assemble(resultSet);
+		close(resultSet);
+		closeStatement();
+
+		return results;
 	}
 }

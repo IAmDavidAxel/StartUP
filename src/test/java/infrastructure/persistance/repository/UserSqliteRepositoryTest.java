@@ -1,6 +1,7 @@
 package infrastructure.persistance.repository;
 
 import domain.user.User;
+import infrastructure.persistance.dao.UserDao;
 import infrastructure.persistance.dto.UserDto;
 import org.junit.Before;
 import org.junit.Test;
