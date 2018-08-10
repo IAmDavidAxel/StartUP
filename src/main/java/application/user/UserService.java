@@ -1,12 +1,12 @@
 package application.user;
 
-import api.user.UserDto;
-import domain.user.User;
+import api.user.AccountantDto;
+import domain.user.UserProfile;
 import domain.user.UserRepository;
 
 public class UserService {
-	private final UserAssembler userAssembler;
-	private final UserRepository userRepository;
+	private  UserAssembler userAssembler;
+	private  UserRepository userRepository;
 
 	public UserService(UserAssembler userAssembler, UserRepository userRepository) {
 
@@ -14,11 +14,11 @@ public class UserService {
 		this.userRepository = userRepository;
 	}
 
-	public void create(UserDto userDto) throws ServiceException{
+	public void create(AccountantDto accountantDto) throws ServiceException{
 
-	User user = userAssembler.assemble(userDto);
+	UserProfile userProfile = userAssembler.assemble(accountantDto);
 
-		userRepository.save(user);
+		userRepository.save(userProfile);
 
 	}
 }

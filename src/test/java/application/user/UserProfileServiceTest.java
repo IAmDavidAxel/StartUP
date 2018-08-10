@@ -2,8 +2,8 @@ package application.user;
 
 
 
-import api.user.UserDto;
-import domain.user.User;
+import api.user.AccountantDto;
+import domain.user.UserProfile;
 import domain.user.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +11,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
 import static org.mockito.BDDMockito.willReturn;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserServiceTest {
+public class UserProfileServiceTest {
 
 	private UserService userService;
 
@@ -24,29 +23,29 @@ public class UserServiceTest {
 	private UserAssembler userAssembler;
 	@Mock
 	private UserRepository userRepository;
-	private UserDto userDto;
-	private User user;
+	private AccountantDto accountantDto;
+	private UserProfile userProfile;
 
 	@Before
 	public void setUp(){
-		userDto = new UserDto();
+		accountantDto = new AccountantDto();
 		userService = new UserService(userAssembler,userRepository);
 	}
 
 	@Test
 	public void whenCreatingANewUser_thenDelegateTransformationToTheAssembler()throws Exception{
-		userService.create(userDto);
+		userService.create(accountantDto);
 
-		verify(userAssembler).assemble(userDto);
+		verify(userAssembler).assemble(accountantDto);
 	}
 
 	@Test
 	public void whenCreatingANewUser_thenDeleagateSavingToTheRepo()throws Exception{
-		willReturn(user).given(userAssembler).assemble(userDto);
+		willReturn(userProfile).given(userAssembler).assemble(accountantDto);
 
-		userService.create(userDto);
+		userService.create(accountantDto);
 
-		verify(userRepository).save(user);
+		verify(userRepository).save(userProfile);
 
 	}
 

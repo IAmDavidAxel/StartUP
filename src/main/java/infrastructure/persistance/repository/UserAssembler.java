@@ -1,10 +1,10 @@
 package infrastructure.persistance.repository;
 
-import domain.user.User;
+import domain.user.UserProfile;
 import infrastructure.persistance.dto.UserDto;
 
 public class UserAssembler {
-	public UserDto assemble(User user) {
+	public UserDto assemble(UserProfile userProfile) {
 		return null;
 	}
 }

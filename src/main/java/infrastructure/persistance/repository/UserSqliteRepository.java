@@ -1,6 +1,6 @@
 package infrastructure.persistance.repository;
 
-import domain.user.User;
+import domain.user.UserProfile;
 import infrastructure.persistance.dao.UserDao;
 import infrastructure.persistance.dao.sqlite.DaoInternalException;
 import infrastructure.persistance.dto.UserDto;
@@ -16,9 +16,9 @@ public class UserSqliteRepository {
 		this.userAssembler = userAssembler;
 	}
 
-	public void save(User user) throws DaoInternalException {
+	public void save(UserProfile userProfile) throws DaoInternalException {
 
-		UserDto userDto = userAssembler.assemble(user);
+		UserDto userDto = userAssembler.assemble(userProfile);
 
 		userDao.save(userDto);
 

@@ -11,9 +11,9 @@ public class UserJsonResource {
 		this.userService = userService;
 	}
 
-	public void create(UserDto userDto) throws ServiceException {
+	public void create(AccountantDto accountantDto) throws ServiceException {
 
-		userService.create(userDto);
+		userService.create(accountantDto);
 	}
 
 }

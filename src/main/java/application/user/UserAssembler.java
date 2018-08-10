@@ -1,10 +1,10 @@
 package application.user;
 
-import api.user.UserDto;
-import domain.user.User;
+import api.user.AccountantDto;
+import domain.user.UserProfile;
 
 public class UserAssembler {
-	public User assemble(UserDto userDto) {
+	public UserProfile assemble(AccountantDto accountantDto) {
 		return null;
 	}
 }
