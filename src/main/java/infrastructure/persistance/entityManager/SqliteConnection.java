@@ -17,6 +17,7 @@ public class SqliteConnection {
 
 	public SqliteConnection (String databaseName){
 		this.databaseName = databaseName;
+		initialiseConnection();
 	}
 
 	private void initialiseConnection(){
