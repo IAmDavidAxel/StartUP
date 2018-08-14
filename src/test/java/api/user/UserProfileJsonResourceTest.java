@@ -1,6 +1,6 @@
 package api.user;
 
-import application.user.UserService;
+import application.user.AccountantService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,21 +12,21 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class UserProfileJsonResourceTest {
 
-	private UserJsonResource userJsonResource;
+	private AccountantJsonResource accountantJsonResource;
 	@Mock
-	private UserService userService;
+	private AccountantService accountantService;
 	private AccountantDto accountantDto;
 
 	@Before
 	public void setUp(){
-		userJsonResource = new UserJsonResource(userService);
+		accountantJsonResource = new AccountantJsonResource(accountantService);
 	}
 
 	@Test
 	public void whenCreatingANewService_thenDeleagateCreationToTheService()throws Exception{
 
-		userJsonResource.create(accountantDto);
+		accountantJsonResource.create(accountantDto);
 
-		verify(userService).create(accountantDto);
+		verify(accountantService).create(accountantDto);
 	}
 }
